@@ -82,7 +82,7 @@ Starlink at 25-50ms RTT (99th percentile <65ms) makes the edge-to-cloud roundtri
 
 | Metric | Value | Source |
 |--------|-------|--------|
-| Total repositories | 3,200+ (2,000 cataloged) | Dim03, CATALOG.md (8262 lines) |
+| Total repositories | 4,095+ (2,000 cataloged as of 2026-06-06) | Dim03, CATALOG.md (8262 lines) |
 | Total tests | 6,000+ | Dim03 |
 | Lines of Rust | 145,000+ | Dim03 |
 | Documentation words | 1,500,000+ | Dim03 |
@@ -227,7 +227,7 @@ Starlink at 25-50ms RTT (99th percentile <65ms) makes the edge-to-cloud roundtri
 | **Pincher-to-CopilotKit bridge** | Connecting the <1ms reflex layer to the human-facing CopilotKit UI requires a status/feedback mechanism that doesn't block the reflex path. | Medium |
 | **Vessel identity + CapBAC integration** | Mapping GitHub Vessel identities to DID-based verifiable credentials with capability delegation chains. No existing implementation found. | Medium |
 | **Offline PLATO room sync** | PLATO knowledge rooms must remain consistent across room transitions during network partitions. CRDT-style eventual consistency needed. | Medium |
-| **Single maintainer at 3200 repos** | 1 contributor across 2000+ repos is a structural risk that automation alone cannot fully mitigate. | High |
+| **Single maintainer at 4,095 repos (as of 2026-07-10)** | 1 contributor across 4,095+ repos (as of 2026-07-10) is a structural risk that automation alone cannot fully mitigate. | High |
 | **Fork currency** | CopilotKit fork is 7 commits behind upstream. Maintaining sync while adding distributed extensions creates merge risk. | Medium |
 
 ### Hybrid Zone (Existing Pattern with Novel Application)
@@ -257,7 +257,7 @@ Based on the research synthesis, the architecture document should be organized a
 **Chapter 2: Ecosystem Overview**
 - The 5-layer compilation pipeline (open-parallel -> pincher -> flux-core -> cuda-oxide -> cudaclaw)
 - Four Vessels as service identities (Forgemaster, CCC, JetsonClaw1, Oracle1)
-- Scale: 3200+ repos, 6000+ tests, 145K+ lines of Rust, 24+ crates.io
+- Scale: 4,095+ repos (as of 2026-07-10), 6000+ tests, 145K+ lines of Rust, 24+ crates.io
 - Git-agent lifecycle (PULL->BOOT->WORK->LEARN->PUSH->SLEEP)
 - Published packages (PyPI 35+, crates.io 24+, npm 18+)
 
@@ -418,7 +418,7 @@ Based on the research synthesis, the architecture document should be organized a
 1. Ternary math claims (16x GPU memory savings) originate from the ecosystem itself; no independent validation was found in external research.
 2. MoA-Off results come from a single 2025 academic paper.
 3. K3s on Raspberry Pi for maritime edge orchestration has community support but no documented production maritime deployment.
-4. The ecosystem has a single maintainer across 3200+ repos, creating structural validation risk.
+4. The ecosystem has a single maintainer across 4,095+ repos (as of 2026-07-10), creating structural validation risk.
 5. The CopilotKit fork is 7 commits behind upstream, requiring ongoing merge maintenance.
 
 ---

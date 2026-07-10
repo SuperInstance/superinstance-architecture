@@ -11,7 +11,7 @@ This plan defines specific content points, required elements, tables, diagrams, 
 - The problem it solves: operating complex distributed systems in disconnected maritime environments with single-maintainer constraints
 - The four defining architectural insights: (1) music cognition as coordination substrate, (2) room-based context architecture, (3) two-tier safety, (4) voice as universal API
 - Hardware scope: ESP32 microcontrollers to Starlink-connected cloud, with NVIDIA Jetson as edge AI anchor
-- Ecosystem scale: 3,200+ repositories, four Vessels, 5-layer execution stack
+- Ecosystem scale: 4,095+ repositories (as of 2026-07-10), four Vessels, 5-layer execution stack
 - Document scope and intended audience: systems architects, edge AI engineers, distributed systems researchers, marine operators
 - Key metrics summary: latency budgets, power budgets, offline capability duration
 
@@ -88,7 +88,7 @@ This plan defines specific content points, required elements, tables, diagrams, 
 ## Chapter 3: Ecosystem Overview
 
 ### Content Points
-- Full ecosystem scale: 3,200+ repositories (2,000 cataloged), 6,000+ tests, 145,000+ lines of Rust, 1,500,000+ words of documentation
+- Full ecosystem scale: 4,095+ repositories (2,000 cataloged as of 2026-06-06), 6,000+ tests, 145,000+ lines of Rust, 1,500,000+ words of documentation
 - The four Vessels as service identities:
   - **Forgemaster** (330 repos): constraint theory, mathematics, FLUX compiler, GPU kernels, formal proofs
   - **CCC** (116 repos): web UI, browser agents, dashboards, marketing, frontend components
@@ -100,7 +100,7 @@ This plan defines specific content points, required elements, tables, diagrams, 
 - Published packages: PyPI 35+, crates.io 24+, npm 18+
 - Key repository families: lau-* (105), flux-* (83), cocapn-* (59), ternary-* (59), agent-* (50), fleet-* (49), plato-* (41)
 - Integration maturity assessment: tight (constraint-theory bindings), moderate (PLATO SDK), loose (many educational repos)
-- Critical gaps: no stable releases, documentation fragmentation, no integration test suite, single contributor across 2000+ repos
+- Critical gaps: no stable releases, documentation fragmentation, no integration test suite, single contributor across 4,095+ repos (as of 2026-07-10)
 
 ### Required Tables
 | Table Title | Column Headers |

@@ -107,7 +107,7 @@ Each bottle uses the three-shard format: **Artifacts**, **Reasoning**, **Blocker
 | `fig7_1_timing_budget.png` | Voice-to-action timing budget (target: <3,000 ms) |
 | `fig_10_1_latency_waterfall.png` | Latency breakdown across tiers |
 | `fig_11_1_roadmap_timeline.png` | Implementation roadmap |
-| `fig_ecosystem_scale.png` | 3,200+ repo ecosystem map |
+| `fig_ecosystem_scale.png` | 4,095+ repo ecosystem map (as of 2026-07-10) |
 | `fig_latency_budget_paths.png` | Reflex vs deliberation paths |
 | `fig_power_budget_tiers.png` | Power consumption by tier |
 | `fig_sec06_latency_budget.png` | Section 6 latency detail |
@@ -134,7 +134,7 @@ The `research/` directory contains outputs from the multi-agent research swarm:
 
 - **Dimension 1** — CopilotKit fork analysis: `useCopilotAction` hooks, A2UI rendering
 - **Dimension 2** — Distributed patterns: DDS, ROS2, MQTT mesh, agent mobility
-- **Dimension 3** — Ecosystem map: all 3,200+ repos, integration points
+- **Dimension 3** — Ecosystem map: all 4,095+ repos (as of 2026-07-10), integration points
 - **Dimension 4** — Voice + edge: Starlink latency, ESP32 wake words, Jetson throughput
 - **Math fleet alignment** — Conservation law verification across the crate stack
 - **Cross-verification** — Multi-agent validation of architectural decisions

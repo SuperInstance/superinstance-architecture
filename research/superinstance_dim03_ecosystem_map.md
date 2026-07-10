@@ -10,7 +10,7 @@
 
 ## Executive Summary
 
-SuperInstance is one of the most ambitious open-source AI agent ecosystems ever built — a **2000+ repository** ecosystem centered around a self-improving AI agent framework with deep mathematical foundations in constraint theory, ternary mathematics, and music cognition. Created by Casey Digennaro, a commercial fisherman in Sitka, Alaska, the system spans Rust, Python, TypeScript, C, CUDA, and 12+ programming languages.
+SuperInstance is one of the most ambitious open-source AI agent ecosystems ever built — a **4,095+ repository (as of 2026-07-10)** ecosystem centered around a self-improving AI agent framework with deep mathematical foundations in constraint theory, ternary mathematics, and music cognition. Created by Casey Digennaro, a commercial fisherman in Sitka, Alaska, the system spans Rust, Python, TypeScript, C, CUDA, and 12+ programming languages.
 
 The ecosystem is organized around **four specialized "Vessels"** (agent identities):
 - **Forgemaster** (330 repos): Constraint theory, math, FLUX compiler, GPU kernels
@@ -45,7 +45,7 @@ The ecosystem has **6,000+ tests**, **145,000+ lines of Rust**, **1,500,000+ wor
 | **GitHub Org** | `SuperInstance` |
 | **Creator** | Casey Digennaro (SuperInstance) |
 | **Location** | Sitka, Alaska |
-| **Total Repositories** | 3,200+ (2,000 cataloged) |
+| **Total Repositories** | 4,095+ (2,000 cataloged as of 2026-06-06) |
 | **Primary Languages** | Rust, Python, TypeScript, C, CUDA, JavaScript |
 | **Tests** | 6,000+ |
 | **Lines of Rust** | 145,000+ |
@@ -342,10 +342,10 @@ plato-sdk ───► cocapn-* ───► fleet-* ───► ternary-*
 | Gap | Severity | Description |
 |-----|----------|-------------|
 | **No stable releases** | High | Most repos have 0 releases on GitHub despite crates.io/PyPI publishing |
-| **Documentation fragmentation** | High | 1.5M words but scattered across 2000 repos, hard to navigate |
+| **Documentation fragmentation** | High | 1.5M words but scattered across approximately 2,000 repos (as of 2026-06-06), hard to navigate |
 | **No integration test suite** | High | 6,000+ unit tests but few cross-repo integration tests |
 | **Hardware-in-the-loop testing** | Medium | Jetson/ESP32 code exists but limited CI for physical hardware |
-| **Community contributions** | Medium | Only 1 contributor (Casey) across 2000+ repos |
+| **Community contributions** | Medium | Only 1 contributor (Casey) across 4,095+ repos (as of 2026-07-10) |
 | **Production deployment guide** | Medium | oracle1-box exists but no comprehensive deployment docs |
 | **Monitoring/observability** | Medium | holodeck-session-manager exists but not mature |
 | **Multi-tenant isolation** | Low | No evidence of tenant separation for multi-user deployments |
@@ -379,7 +379,7 @@ plato-sdk ───► cocapn-* ───► fleet-* ───► ternary-*
 
 ### Key Documentation Files
 - `ONBOARDING.md` — Agent-readable onboarding
-- `CATALOG.md` — 8262-line catalog of all 2000 repos
+- `CATALOG.md` — 8262-line catalog of all 2,000 repos in the catalog (generated 2026-06-06)
 - `MESH-ARCHITECTURE.md` — Standalone + meshable ecosystem design
 - `INDEX.md` — Auto-generated indexes
 

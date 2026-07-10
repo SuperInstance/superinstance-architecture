@@ -12,7 +12,7 @@
 
 5. **Starlink is viable for LLM APIs (25-50ms RTT)** — Confirmed by Voice_Edge_Researcher with multiple sources
 
-6. **The SuperInstance ecosystem has 2000+ repos with 5-layer Rust core** — Confirmed by Ecosystem_Mapper with CATALOG.md evidence
+6. **The SuperInstance ecosystem has 4,095+ repos (as of 2026-07-10) with 5-layer Rust core** — Confirmed by Ecosystem_Mapper with CATALOG.md evidence
 
 7. **Music cognition as mathematical architecture** — Confirmed by Ecosystem_Mapper (not metaphor but actual math)
 
@@ -30,4 +30,4 @@
 
 2. **CopilotKit fork currency**: Fork is 7 commits behind upstream. Need to maintain sync.
 
-3. **Single maintainer vs scale**: 3,200 repos with 1 contributor is a structural risk.
+3. **Single maintainer vs scale**: 4,095 repos (as of 2026-07-10) with 1 contributor is a structural risk.

@@ -1,6 +1,6 @@
 ## 11. Implementation Roadmap
 
-The preceding chapters defined a voice-controlled, self-assembling distributed system for maritime operation. This chapter converts that architecture into a twelve-month implementation plan, structured around five phases with defined deliverables, measurable exit criteria, and identified risk mitigations. The plan acknowledges four hard constraints from earlier analysis: a single contributor maintains 3,200+ repositories [^1^]; no cross-repo integration test suite exists [^15^]; the CopilotKit fork trails upstream by seven commits [^48^]; and the hardware bill of materials totals approximately $1,200–1,600 one-time plus $75–120 per month for Starlink [^28^].
+The preceding chapters defined a voice-controlled, self-assembling distributed system for maritime operation. This chapter converts that architecture into a twelve-month implementation plan, structured around five phases with defined deliverables, measurable exit criteria, and identified risk mitigations. The plan acknowledges four hard constraints from earlier analysis: a single contributor maintains 4,095+ repositories (as of 2026-07-10) [^1^]; no cross-repo integration test suite exists [^15^]; the CopilotKit fork trails upstream by seven commits [^48^]; and the hardware bill of materials totals approximately $1,200–1,600 one-time plus $75–120 per month for Starlink [^28^].
 
 ### 11.1 Development Phases
 
@@ -46,7 +46,7 @@ The phase ordering follows a dependency chain: each phase validates a layer befo
 
 #### 11.2.1 Technical Risks
 
-The five-layer compilation pipeline is the highest technical risk. The stack (`open-parallel` → `pincher` → `flux-core` → `cuda-oxide` → `cudaclaw`) has no validated end-to-end path; Chapter 2 found no automated test that natural language intent traverses all five layers and executes on GPU hardware [^15^]. Latency feasibility is a second risk: the 500 ms gap identified in Chapter 10 concentrates in VAD endpointing (+150 ms) and LLM generation (+350 ms), requiring streaming implementations not yet in the codebase. The single-maintainer bottleneck is structural — one contributor across 3,200+ repositories yields a bus factor of one [^1^].
+The five-layer compilation pipeline is the highest technical risk. The stack (`open-parallel` → `pincher` → `flux-core` → `cuda-oxide` → `cudaclaw`) has no validated end-to-end path; Chapter 2 found no automated test that natural language intent traverses all five layers and executes on GPU hardware [^15^]. Latency feasibility is a second risk: the 500 ms gap identified in Chapter 10 concentrates in VAD endpointing (+150 ms) and LLM generation (+350 ms), requiring streaming implementations not yet in the codebase. The single-maintainer bottleneck is structural — one contributor across 4,095+ repositories (as of 2026-07-10) yields a bus factor of one [^1^].
 
 #### 11.2.2 Integration Risks
 

@@ -2,7 +2,7 @@
 
 ## Executive Summary (~800 words, 2 tables)
 ### Document Purpose and Scope
-#### Architecture document mapping the complete SuperInstance-copilot platform integrating 3,200+ repos into a unified distributed system
+#### Architecture document mapping the complete SuperInstance-copilot platform integrating 4,095+ repos (as of 2026-07-10) into a unified distributed system
 #### Scope boundaries: covers system architecture, communication protocols, hardware tiers, agent model, safety systems, voice pipeline, and implementation roadmap; excludes installation guides, API reference docs, and operational playbooks
 #### Intended audience: systems architects, edge AI engineers, distributed systems researchers, marine technology integrators
 ### System at a Glance
@@ -12,7 +12,7 @@
 ### Success Criteria
 #### Performance targets: voice-to-action under 3 seconds, reflex under 700ms, auto-join under 60 seconds, 24-hour offline autonomy
 #### Quality attributes priority: safety > availability > latency > throughput > cost
-#### Constraints: single maintainer, 3,200-repo ecosystem, maritime environment, Starlink dependency
+#### Constraints: single maintainer, 4,095-repo (as of 2026-07-10) ecosystem, maritime environment, Starlink dependency
 
 ## 1. System Overview and Architecture Philosophy (~1,500 words, 1 table, 1 diagram)
 ### 1.1 Design Philosophy
@@ -34,7 +34,7 @@
 
 ## 2. The Ecosystem (~2,000 words, 3 tables, 2 diagrams)
 ### 2.1 Ecosystem Scale
-#### 2.1.1 3,200+ repositories (2,000 cataloged), 6,000+ tests, 145,000+ lines of Rust, 1,500,000+ words of documentation
+#### 2.1.1 4,095+ repositories (2,000 cataloged as of 2026-06-06), 6,000+ tests, 145,000+ lines of Rust, 1,500,000+ words of documentation
 #### 2.1.2 Four Vessel identities: Forgemaster (330 repos, constraint theory/math), CCC (116 repos, web UI), JetsonClaw1 (76 repos, hardware/edge), Oracle1 (43 repos, infrastructure)
 #### 2.1.3 Published packages: PyPI 35+, crates.io 24+, npm 18+ — ecosystem metrics table
 ### 2.2 The Five-Layer Stack
