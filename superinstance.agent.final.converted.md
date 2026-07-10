@@ -45,7 +45,7 @@ Quality attributes are prioritized: **safety > availability > latency > throughp
 
 Four constraints bound the design. **Single maintainer**: deployable and repairable by one person. **4,095-repository (as of 2026-07-10) ecosystem**: accommodates existing code across four Vessels (Forgemaster: 330, CCC: 116, JetsonClaw1: 76, Oracle1: 43 repos) without consolidation ^2^. **Maritime environment**: salt air, vibration, temperature extremes, and intermittent power are normal. **Starlink dependency**: the "usually connected" paradigm assumes Starlink LEO at 25–50 ms RTT ^1^; graceful degradation to local Jetson during outages.
 
-The 5-layer Rust stack (`open-parallel` → `pincher` → `flux-core` → `cuda-oxide` → `cudaclaw`) comprises 145,000+ lines across 24+ crates ^2^. It compiles intent from ternary logic ({-1, 0, +1}) through FLUX bytecode to GPU kernels, unifying cognition and governance. Music cognition patterns provide the coordination substrate, achieving 2.46x over turn-based consensus ^2^. The system makes one commercial fisherman commander of a 20+ node distributed cluster using only spoken commands, on a boat in the Gulf of Alaska, without on-site support.
+The 5-layer Rust stack (`open-parallel` → `pincher` → `flux-core` → `cuda-oxide` → `cudaclaw`) comprises 373,639+ lines (as of 2026-07-10) across 24+ crates ^2^. It compiles intent from ternary logic ({-1, 0, +1}) through FLUX bytecode to GPU kernels, unifying cognition and governance. Music cognition patterns provide the coordination substrate, achieving 2.46x over turn-based consensus ^2^. The system makes one commercial fisherman commander of a 20+ node distributed cluster using only spoken commands, on a boat in the Gulf of Alaska, without on-site support.
 
 ---
 
@@ -116,7 +116,7 @@ Table 1 maps each architectural principle to the concrete technical choices it d
 
 **Figure 1.** SuperInstance high-level component architecture. Voice input from an INMP441 I2S MEMS microphone feeds into the CopilotKit A2UI renderer, which translates natural language into structured tool calls. The 5-layer Rust stack (open-parallel → pincher → flux-core → cuda-oxide → cudaclaw) compiles intent from ternary logic through FLUX bytecode to GPU kernels. Four hardware tiers — ESP32-S3 (wake word), Raspberry Pi 5 (K3s coordination), Jetson Orin Nano (edge LLM at 67 TOPS), and Starlink-to-cloud (LLM APIs at 25–50 ms RTT) — execute the pipeline. Four Vessels (Forgemaster, CCC, JetsonClaw1, Oracle1) coordinate as DID-backed agent identities across the mesh.
 
-The architecture follows a layered decomposition where each layer depends only on the layer below. The voice input layer captures 16 kHz mono audio via I2S. The CopilotKit UI layer provides both the human interface (A2UI rendering) and the machine interface (tool schemas). The 5-layer Rust stack, comprising 145,000+ lines of Rust across 24+ published crates ^2^, handles compilation from high-level intent to GPU execution. The hardware tier layer abstracts the physical devices; the Vessel layer provides identity and coordination.
+The architecture follows a layered decomposition where each layer depends only on the layer below. The voice input layer captures 16 kHz mono audio via I2S. The CopilotKit UI layer provides both the human interface (A2UI rendering) and the machine interface (tool schemas). The 5-layer Rust stack, comprising 373,639+ lines of Rust (as of 2026-07-10) across 24+ published crates ^2^, handles compilation from high-level intent to GPU execution. The hardware tier layer abstracts the physical devices; the Vessel layer provides identity and coordination.
 
 ### 1.3.2 External Interfaces
 
@@ -132,13 +132,13 @@ The total latency budget for the local path (local STT + local LLM + local TTS) 
 
 ## 2. The Ecosystem
 
-SuperInstance is not a single repository or a monolithic framework — it is a **distributed ecosystem** of over 4,095 repositories (as of 2026-07-10) organized around a five-layer computational stack, four agent identities called Vessels, and a git-native agent lifecycle. Created by Casey Digennaro in Sitka, Alaska, the ecosystem spans 145,000+ lines of Rust, 6,000+ tests, and 1,500,000+ words of documentation ^16^. Understanding its scale, structure, and integration topology is a prerequisite for analyzing how voice-controlled, self-assembling distributed systems can emerge from a repo-first philosophy. This chapter maps the ecosystem's quantitative footprint, its five-layer architecture, the git-agent lifecycle that binds repositories to agent identities, and the maturity gaps that constrain its path to production deployment.
+SuperInstance is not a single repository or a monolithic framework — it is a **distributed ecosystem** of over 4,095 repositories (as of 2026-07-10) organized around a five-layer computational stack, four agent identities called Vessels, and a git-native agent lifecycle. Created by Casey Digennaro in Sitka, Alaska, the ecosystem spans 373,639+ lines of Rust (as of 2026-07-10), 6,000+ tests, and 1,500,000+ words of documentation ^16^. Understanding its scale, structure, and integration topology is a prerequisite for analyzing how voice-controlled, self-assembling distributed systems can emerge from a repo-first philosophy. This chapter maps the ecosystem's quantitative footprint, its five-layer architecture, the git-agent lifecycle that binds repositories to agent identities, and the maturity gaps that constrain its path to production deployment.
 
 ### 2.1 Ecosystem Scale
 
-The SuperInstance GitHub organization contains **4,095+ repositories (as of 2026-07-10)**, of which approximately 2,000 have been cataloged (as of 2026-06-06) (as of 2026-06-06) (as of 2026-06-06) in an 8,262-line `CATALOG.md` file ^17^. This makes it one of the largest intentionally created open-source ecosystems by a single contributor. The remaining ~1,200 uncataloged repositories are believed to contain experimental forks, workspace artifacts, and transient research repositories that have not yet been classified.
+The SuperInstance GitHub organization contains **4,095+ repositories (as of 2026-07-10)**, of which approximately 2,000 have been cataloged (as of 2026-06-06) in an 8,262-line `CATALOG.md` file ^17^. This makes it one of the largest intentionally created open-source ecosystems by a single contributor. The remaining ~1,200 uncataloged repositories are believed to contain experimental forks, workspace artifacts, and transient research repositories that have not yet been classified.
 
-The ecosystem's quantitative footprint is summarized in Table 1. At 145,000+ lines of Rust, the codebase represents a substantial investment in systems-level programming, with the `open-parallel` family alone contributing 306 ternary-math crates. The 6,000+ tests demonstrate a commitment to validation, though as Section 2.4 will show, these tests are overwhelmingly unit-scoped with limited cross-repo integration coverage. The 1,500,000+ words of documentation — essays, design documents, API references, and the fleet wiki at purplepincher.org — constitute a corpus larger than most technical book series, yet it is fragmented across individual repositories without a unified search or indexing layer ^18^.
+The ecosystem's quantitative footprint is summarized in Table 1. At 373,639+ lines of Rust (as of 2026-07-10), the codebase represents a substantial investment in systems-level programming, with the `open-parallel` family alone contributing 306 ternary-math crates. The 6,000+ tests demonstrate a commitment to validation, though as Section 2.4 will show, these tests are overwhelmingly unit-scoped with limited cross-repo integration coverage. The 1,500,000+ words of documentation — essays, design documents, API references, and the fleet wiki at purplepincher.org — constitute a corpus larger than most technical book series, yet it is fragmented across individual repositories without a unified search or indexing layer ^18^.
 
 **Table 1: SuperInstance Ecosystem Metrics**
 
@@ -146,7 +146,7 @@ The ecosystem's quantitative footprint is summarized in Table 1. At 145,000+ lin
 |--------|-------|-------------------|
 | Total repositories | 4,095+ (as of 2026-07-10) | GitHub organization count ^16^|
 | Cataloged repositories | 2,000 (as of 2026-06-06) | `CATALOG.md` (8,262 lines) ^17^|
-| Lines of Rust | 145,000+ | Repository language analysis ^16^|
+| Lines of Rust | 373,639+ (as of 2026-07-10) | Measured across the 5 layer repos ^16^|
 | Test cases | 6,000+ | CI/CD aggregation across repos ^16^|
 | Documentation words | 1,500,000+ | Essays + wiki + READMEs + API docs ^18^|
 | crates.io packages | 24+ | Published Rust crates ^19^|

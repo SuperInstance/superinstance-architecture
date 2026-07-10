@@ -84,7 +84,7 @@ Starlink at 25-50ms RTT (99th percentile <65ms) makes the edge-to-cloud roundtri
 |--------|-------|--------|
 | Total repositories | 4,095+ (2,000 cataloged as of 2026-06-06) | Dim03, CATALOG.md (8262 lines) |
 | Total tests | 6,000+ | Dim03 |
-| Lines of Rust | 145,000+ | Dim03 |
+| Lines of Rust | 373,639+ (as of 2026-07-10) | Measured across the 5 layer repos |
 | Documentation words | 1,500,000+ | Dim03 |
 | Published crates.io | 24+ | Dim03 |
 | Published PyPI | 35+ packages | Dim03 |
@@ -257,7 +257,7 @@ Based on the research synthesis, the architecture document should be organized a
 **Chapter 2: Ecosystem Overview**
 - The 5-layer compilation pipeline (open-parallel -> pincher -> flux-core -> cuda-oxide -> cudaclaw)
 - Four Vessels as service identities (Forgemaster, CCC, JetsonClaw1, Oracle1)
-- Scale: 4,095+ repos (as of 2026-07-10), 6000+ tests, 145K+ lines of Rust, 24+ crates.io
+- Scale: 4,095+ repos (as of 2026-07-10), 6000+ tests, 373K+ lines of Rust (as of 2026-07-10), 24+ crates.io
 - Git-agent lifecycle (PULL->BOOT->WORK->LEARN->PUSH->SLEEP)
 - Published packages (PyPI 35+, crates.io 24+, npm 18+)
 

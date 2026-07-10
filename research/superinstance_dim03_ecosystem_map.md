@@ -18,7 +18,7 @@ The ecosystem is organized around **four specialized "Vessels"** (agent identiti
 - **JetsonClaw1** (76 repos): Hardware edge, Jetson, ESP32, marine sensors
 - **Oracle1** (43 repos): Core infrastructure, APIs, fleet coordination
 
-The ecosystem has **6,000+ tests**, **145,000+ lines of Rust**, **1,500,000+ words** of documentation and essays, and **24+ published crates** on crates.io.
+The ecosystem has **6,000+ tests**, **373,639+ lines of Rust (as of 2026-07-10)**, **1,500,000+ words** of documentation and essays, and **24+ published crates** on crates.io.
 
 ---
 

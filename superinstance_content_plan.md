@@ -88,7 +88,7 @@ This plan defines specific content points, required elements, tables, diagrams, 
 ## Chapter 3: Ecosystem Overview
 
 ### Content Points
-- Full ecosystem scale: 4,095+ repositories (2,000 cataloged as of 2026-06-06), 6,000+ tests, 145,000+ lines of Rust, 1,500,000+ words of documentation
+- Full ecosystem scale: 4,095+ repositories (2,000 cataloged as of 2026-06-06), 6,000+ tests, 373,639+ lines of Rust (as of 2026-07-10), 1,500,000+ words of documentation
 - The four Vessels as service identities:
   - **Forgemaster** (330 repos): constraint theory, mathematics, FLUX compiler, GPU kernels, formal proofs
   - **CCC** (116 repos): web UI, browser agents, dashboards, marketing, frontend components

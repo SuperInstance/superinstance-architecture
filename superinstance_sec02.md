@@ -1,12 +1,12 @@
 ## 2. The Ecosystem
 
-SuperInstance is not a single repository or a monolithic framework — it is a **distributed ecosystem** of over 4,095 repositories (as of 2026-07-10) organized around a five-layer computational stack, four agent identities called Vessels, and a git-native agent lifecycle. Created by Casey Digennaro in Sitka, Alaska, the ecosystem spans 145,000+ lines of Rust, 6,000+ tests, and 1,500,000+ words of documentation [^1^]. Understanding its scale, structure, and integration topology is a prerequisite for analyzing how voice-controlled, self-assembling distributed systems can emerge from a repo-first philosophy. This chapter maps the ecosystem's quantitative footprint, its five-layer architecture, the git-agent lifecycle that binds repositories to agent identities, and the maturity gaps that constrain its path to production deployment.
+SuperInstance is not a single repository or a monolithic framework — it is a **distributed ecosystem** of over 4,095 repositories (as of 2026-07-10) organized around a five-layer computational stack, four agent identities called Vessels, and a git-native agent lifecycle. Created by Casey Digennaro in Sitka, Alaska, the ecosystem spans 373,639+ lines of Rust (as of 2026-07-10), 6,000+ tests, and 1,500,000+ words of documentation [^1^]. Understanding its scale, structure, and integration topology is a prerequisite for analyzing how voice-controlled, self-assembling distributed systems can emerge from a repo-first philosophy. This chapter maps the ecosystem's quantitative footprint, its five-layer architecture, the git-agent lifecycle that binds repositories to agent identities, and the maturity gaps that constrain its path to production deployment.
 
 ### 2.1 Ecosystem Scale
 
-The SuperInstance GitHub organization contains **4,095+ repositories (as of 2026-07-10)**, of which approximately 2,000 have been cataloged (as of 2026-06-06) (as of 2026-06-06) (as of 2026-06-06) in an 8,262-line `CATALOG.md` file [^2^]. This makes it one of the largest intentionally created open-source ecosystems by a single contributor. The remaining ~1,200 uncataloged repositories are believed to contain experimental forks, workspace artifacts, and transient research repositories that have not yet been classified.
+The SuperInstance GitHub organization contains **4,095+ repositories (as of 2026-07-10)**, of which approximately 2,000 have been cataloged (as of 2026-06-06) in an 8,262-line `CATALOG.md` file [^2^]. This makes it one of the largest intentionally created open-source ecosystems by a single contributor. The remaining ~1,200 uncataloged repositories are believed to contain experimental forks, workspace artifacts, and transient research repositories that have not yet been classified.
 
-The ecosystem's quantitative footprint is summarized in Table 1. At 145,000+ lines of Rust, the codebase represents a substantial investment in systems-level programming, with the `open-parallel` family alone contributing 306 ternary-math crates. The 6,000+ tests demonstrate a commitment to validation, though as Section 2.4 will show, these tests are overwhelmingly unit-scoped with limited cross-repo integration coverage. The 1,500,000+ words of documentation — essays, design documents, API references, and the fleet wiki at purplepincher.org — constitute a corpus larger than most technical book series, yet it is fragmented across individual repositories without a unified search or indexing layer [^3^].
+The ecosystem's quantitative footprint is summarized in Table 1. At 373,639+ lines of Rust (as of 2026-07-10), the codebase represents a substantial investment in systems-level programming, with the `open-parallel` family alone contributing 306 ternary-math crates. The 6,000+ tests demonstrate a commitment to validation, though as Section 2.4 will show, these tests are overwhelmingly unit-scoped with limited cross-repo integration coverage. The 1,500,000+ words of documentation — essays, design documents, API references, and the fleet wiki at purplepincher.org — constitute a corpus larger than most technical book series, yet it is fragmented across individual repositories without a unified search or indexing layer [^3^].
 
 **Table 1: SuperInstance Ecosystem Metrics**
 
@@ -14,7 +14,7 @@ The ecosystem's quantitative footprint is summarized in Table 1. At 145,000+ lin
 |--------|-------|-------------------|
 | Total repositories | 4,095+ (as of 2026-07-10) | GitHub organization count [^1^] |
 | Cataloged repositories | 2,000 (as of 2026-06-06) | `CATALOG.md` (8,262 lines) [^2^] |
-| Lines of Rust | 145,000+ | Repository language analysis [^1^] |
+| Lines of Rust | 373,639+ (as of 2026-07-10) | Measured across the 5 layer repos [^1^] |
 | Test cases | 6,000+ | CI/CD aggregation across repos [^1^] |
 | Documentation words | 1,500,000+ | Essays + wiki + READMEs + API docs [^3^] |
 | crates.io packages | 24+ | Published Rust crates [^4^] |

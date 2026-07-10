@@ -49,7 +49,7 @@ SuperInstance decomposes every application into **rooms** — simultaneously phy
 │  open-parallel   — Ternary logic layer  │
 │                  {-1, 0, +1} → FLUX     │
 └─────────────────────────────────────────┘
-         145,000+ lines, 24+ crates
+         373,639+ lines across the 5 layer repos; 24+ crates on crates.io (as of 2026-07-10)
 ```
 
 ## Vessel Agents

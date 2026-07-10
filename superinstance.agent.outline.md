@@ -34,7 +34,7 @@
 
 ## 2. The Ecosystem (~2,000 words, 3 tables, 2 diagrams)
 ### 2.1 Ecosystem Scale
-#### 2.1.1 4,095+ repositories (2,000 cataloged as of 2026-06-06), 6,000+ tests, 145,000+ lines of Rust, 1,500,000+ words of documentation
+#### 2.1.1 4,095+ repositories (2,000 cataloged as of 2026-06-06), 6,000+ tests, 373,639+ lines of Rust (as of 2026-07-10), 1,500,000+ words of documentation
 #### 2.1.2 Four Vessel identities: Forgemaster (330 repos, constraint theory/math), CCC (116 repos, web UI), JetsonClaw1 (76 repos, hardware/edge), Oracle1 (43 repos, infrastructure)
 #### 2.1.3 Published packages: PyPI 35+, crates.io 24+, npm 18+ — ecosystem metrics table
 ### 2.2 The Five-Layer Stack
