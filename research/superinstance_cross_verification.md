@@ -28,6 +28,6 @@
 
 1. **Ternary math adoption**: Ecosystem heavily invested in {-1,0,+1} ternary system; external research primarily uses binary/floating-point. This is a deliberate architectural choice by SuperInstance, not a conflict to resolve.
 
-2. **CopilotKit fork currency**: Fork is 7 commits behind upstream. Need to maintain sync.
+2. **CopilotKit fork currency**: Fork is 2,132 commits behind upstream (as of 2026-07-10). Need to maintain sync.
 
 3. **Single maintainer vs scale**: 4,095 repos (as of 2026-07-10) with 1 contributor is a structural risk.

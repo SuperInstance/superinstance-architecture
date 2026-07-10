@@ -299,7 +299,7 @@ This plan defines specific content points, required elements, tables, diagrams, 
 ## Chapter 7: CopilotKit Integration
 
 ### Content Points
-- CopilotKit fork status: 1 commit ahead (SuperInstance Fleet Copilot), 7 commits behind upstream
+- CopilotKit fork status: 4 commits ahead (SuperInstance Fleet Copilot), 2,132 commits behind upstream (as of 2026-07-10)
 - Core architecture: frontend (React/Angular/Vue) + GraphQL/SSE communication + CopilotRuntime with pluggable LLM adapters
 - Why CopilotKit: 9/10 as agentic UI framework, reactive architecture (RxJS + SSE), clean multi-agent registration, A2UI rendering
 - Known gaps: 5/10 as distributed glue — no agent discovery, single-process runtime, no MQTT/NATS, SQLite-only persistence

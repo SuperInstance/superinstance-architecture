@@ -114,7 +114,7 @@ Starlink at 25-50ms RTT (99th percentile <65ms) makes the edge-to-cloud roundtri
 | Packages in monorepo | 20+ core + 48 examples + 20+ integrations | Dim01, Section 2 |
 | Frameworks supported | React, Angular, Vue, React Native (frontend); OpenAI, Anthropic, Google, LangChain, etc. (backend) | Dim01, Section 2 |
 | LLM adapters | 8+ service adapters | Dim01, Section 3.2 |
-| Fork delta | 1 commit ahead, 7 commits behind upstream | Dim01, Section 1 |
+| Fork delta | 4 commits ahead, 2,132 commits behind upstream (as of 2026-07-10) | Dim01, Section 1 |
 
 ---
 
@@ -228,7 +228,7 @@ Starlink at 25-50ms RTT (99th percentile <65ms) makes the edge-to-cloud roundtri
 | **Vessel identity + CapBAC integration** | Mapping GitHub Vessel identities to DID-based verifiable credentials with capability delegation chains. No existing implementation found. | Medium |
 | **Offline PLATO room sync** | PLATO knowledge rooms must remain consistent across room transitions during network partitions. CRDT-style eventual consistency needed. | Medium |
 | **Single maintainer at 4,095 repos (as of 2026-07-10)** | 1 contributor across 4,095+ repos (as of 2026-07-10) is a structural risk that automation alone cannot fully mitigate. | High |
-| **Fork currency** | CopilotKit fork is 7 commits behind upstream. Maintaining sync while adding distributed extensions creates merge risk. | Medium |
+| **Fork currency** | CopilotKit fork is 2,132 commits behind upstream (as of 2026-07-10). Maintaining sync while adding distributed extensions creates merge risk. | Medium |
 
 ### Hybrid Zone (Existing Pattern with Novel Application)
 
@@ -419,7 +419,7 @@ Based on the research synthesis, the architecture document should be organized a
 2. MoA-Off results come from a single 2025 academic paper.
 3. K3s on Raspberry Pi for maritime edge orchestration has community support but no documented production maritime deployment.
 4. The ecosystem has a single maintainer across 4,095+ repos (as of 2026-07-10), creating structural validation risk.
-5. The CopilotKit fork is 7 commits behind upstream, requiring ongoing merge maintenance.
+5. The CopilotKit fork is 2,132 commits behind upstream (as of 2026-07-10), requiring ongoing merge maintenance.
 
 ---
 

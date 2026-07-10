@@ -1,6 +1,6 @@
 ## 11. Implementation Roadmap
 
-The preceding chapters defined a voice-controlled, self-assembling distributed system for maritime operation. This chapter converts that architecture into a twelve-month implementation plan, structured around five phases with defined deliverables, measurable exit criteria, and identified risk mitigations. The plan acknowledges four hard constraints from earlier analysis: a single contributor maintains 4,095+ repositories (as of 2026-07-10) [^1^]; no cross-repo integration test suite exists [^15^]; the CopilotKit fork trails upstream by seven commits [^48^]; and the hardware bill of materials totals approximately $1,200–1,600 one-time plus $75–120 per month for Starlink [^28^].
+The preceding chapters defined a voice-controlled, self-assembling distributed system for maritime operation. This chapter converts that architecture into a twelve-month implementation plan, structured around five phases with defined deliverables, measurable exit criteria, and identified risk mitigations. The plan acknowledges four hard constraints from earlier analysis: a single contributor maintains 4,095+ repositories (as of 2026-07-10) [^1^]; no cross-repo integration test suite exists [^15^]; the CopilotKit fork trails upstream by 2,132 commits (as of 2026-07-10) [^48^]; and the hardware bill of materials totals approximately $1,200–1,600 one-time plus $75–120 per month for Starlink [^28^].
 
 ### 11.1 Development Phases
 
@@ -50,7 +50,7 @@ The five-layer compilation pipeline is the highest technical risk. The stack (`o
 
 #### 11.2.2 Integration Risks
 
-The CopilotKit fork (seven commits behind upstream [^48^]) risks unmergeability if upstream introduces breaking AG-UI protocol changes. LLM API costs scale with fleet size: at one command per five minutes, a single vessel generates 288 API calls daily; multi-vessel deployments could exceed the $75–120 monthly Starlink subscription in API spend alone. Starlink availability depends on environmental conditions — heavy rain and high-latitude gaps can degrade the 25–50 ms median RTT for hours [^31^].
+The CopilotKit fork (2,132 commits behind upstream (as of 2026-07-10) [^48^]) risks unmergeability if upstream introduces breaking AG-UI protocol changes. LLM API costs scale with fleet size: at one command per five minutes, a single vessel generates 288 API calls daily; multi-vessel deployments could exceed the $75–120 monthly Starlink subscription in API spend alone. Starlink availability depends on environmental conditions — heavy rain and high-latitude gaps can degrade the 25–50 ms median RTT for hours [^31^].
 
 #### 11.2.3 Operational Risks
 

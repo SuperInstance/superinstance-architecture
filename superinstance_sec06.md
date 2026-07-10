@@ -4,7 +4,7 @@ The SuperInstance fork of CopilotKit transforms a general-purpose agentic UI fra
 
 ### 6.1 CopilotKit Fork Architecture
 
-The SuperInstance fork (`github.com/SuperInstance/copilotkit`) sits one commit ahead of upstream with the addition of the SuperInstance Fleet Copilot in `showcase/integrations/superinstance/`, and seven commits behind, a gap that should be closed during each release cycle to retain upstream bug fixes and AG-UI protocol updates. The integration is built against CopilotKit's monorepo structure, which uses pnpm workspaces and Nx for build orchestration. Three packages provide the critical integration surface.
+The SuperInstance fork (`github.com/SuperInstance/copilotkit`) sits 4 commits ahead of upstream with the addition of the SuperInstance Fleet Copilot in `showcase/integrations/superinstance/`, and 2,132 commits behind (as of 2026-07-10), a gap that should be closed during each release cycle to retain upstream bug fixes and AG-UI protocol updates. The integration is built against CopilotKit's monorepo structure, which uses pnpm workspaces and Nx for build orchestration. Three packages provide the critical integration surface.
 
 | Package | Role in SuperInstance |
 |---|---|

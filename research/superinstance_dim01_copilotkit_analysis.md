@@ -27,7 +27,7 @@ CopilotKit is a **best-in-class, multi-platform SDK for building full-stack agen
 
 ### SuperInstance's Fork
 
-The SuperInstance fork is 1 commit ahead and 7 commits behind upstream. The key addition is the **SuperInstance Fleet Copilot** integration (`showcase/integrations/superinstance/`) — a CopilotKit-powered chat interface that connects to SuperInstance's fleet systems (Nebula reflex engine, VoxelWorks, DeepSeek V4 Flash, CraftMind, Cognitive Compiler) providing a natural-language control plane for distributed edge infrastructure.
+The SuperInstance fork is 4 commits ahead and 2,132 commits behind upstream (as of 2026-07-10). The key addition is the **SuperInstance Fleet Copilot** integration (`showcase/integrations/superinstance/`) — a CopilotKit-powered chat interface that connects to SuperInstance's fleet systems (Nebula reflex engine, VoxelWorks, DeepSeek V4 Flash, CraftMind, Cognitive Compiler) providing a natural-language control plane for distributed edge infrastructure.
 
 ---
 

@@ -809,7 +809,7 @@ The SuperInstance fork of CopilotKit transforms a general-purpose agentic UI fra
 
 ### 6.1 CopilotKit Fork Architecture
 
-The SuperInstance fork (`github.com/SuperInstance/copilotkit`) sits one commit ahead of upstream with the addition of the SuperInstance Fleet Copilot in `showcase/integrations/superinstance/`, and seven commits behind, a gap that should be closed during each release cycle to retain upstream bug fixes and AG-UI protocol updates. The integration is built against CopilotKit's monorepo structure, which uses pnpm workspaces and Nx for build orchestration. Three packages provide the critical integration surface.
+The SuperInstance fork (`github.com/SuperInstance/copilotkit`) sits 4 commits ahead of upstream with the addition of the SuperInstance Fleet Copilot in `showcase/integrations/superinstance/`, and 2,132 commits behind (as of 2026-07-10), a gap that should be closed during each release cycle to retain upstream bug fixes and AG-UI protocol updates. The integration is built against CopilotKit's monorepo structure, which uses pnpm workspaces and Nx for build orchestration. Three packages provide the critical integration surface.
 
 | Package | Role in SuperInstance |
 |---|---|
@@ -1413,7 +1413,7 @@ Starlink's median RTT of 25–50 ms with 99th percentile under 65 ms ^1^makes it
 
 ## 11. Implementation Roadmap
 
-The preceding chapters defined a voice-controlled, self-assembling distributed system for maritime operation. This chapter converts that architecture into a twelve-month implementation plan, structured around five phases with defined deliverables, measurable exit criteria, and identified risk mitigations. The plan acknowledges four hard constraints from earlier analysis: a single contributor maintains 4,095+ repositories (as of 2026-07-10) ^16^; no cross-repo integration test suite exists ^13^; the CopilotKit fork trails upstream by seven commits ^10^; and the hardware bill of materials totals approximately $1,200–1,600 one-time plus $75–120 per month for Starlink ^2^.
+The preceding chapters defined a voice-controlled, self-assembling distributed system for maritime operation. This chapter converts that architecture into a twelve-month implementation plan, structured around five phases with defined deliverables, measurable exit criteria, and identified risk mitigations. The plan acknowledges four hard constraints from earlier analysis: a single contributor maintains 4,095+ repositories (as of 2026-07-10) ^16^; no cross-repo integration test suite exists ^13^; the CopilotKit fork trails upstream by 2,132 commits (as of 2026-07-10) ^10^; and the hardware bill of materials totals approximately $1,200–1,600 one-time plus $75–120 per month for Starlink ^2^.
 
 ### 11.1 Development Phases
 
@@ -1463,7 +1463,7 @@ The five-layer compilation pipeline is the highest technical risk. The stack (`o
 
 #### 11.2.2 Integration Risks
 
-The CopilotKit fork (seven commits behind upstream ^10^) risks unmergeability if upstream introduces breaking AG-UI protocol changes. LLM API costs scale with fleet size: at one command per five minutes, a single vessel generates 288 API calls daily; multi-vessel deployments could exceed the $75–120 monthly Starlink subscription in API spend alone. Starlink availability depends on environmental conditions — heavy rain and high-latitude gaps can degrade the 25–50 ms median RTT for hours ^1^.
+The CopilotKit fork (2,132 commits behind upstream (as of 2026-07-10) ^10^) risks unmergeability if upstream introduces breaking AG-UI protocol changes. LLM API costs scale with fleet size: at one command per five minutes, a single vessel generates 288 API calls daily; multi-vessel deployments could exceed the $75–120 monthly Starlink subscription in API spend alone. Starlink availability depends on environmental conditions — heavy rain and high-latitude gaps can degrade the 25–50 ms median RTT for hours ^1^.
 
 #### 11.2.3 Operational Risks
 

@@ -118,7 +118,7 @@
 
 ## 6. CopilotKit Integration — Natural Language Control Plane (~1,500 words, 2 tables, 2 diagrams)
 ### 6.1 CopilotKit Fork Architecture
-#### 6.1.1 Fork status: 1 commit ahead (SuperInstance Fleet Copilot), 7 commits behind upstream
+#### 6.1.1 Fork status: 4 commits ahead (SuperInstance Fleet Copilot), 2,132 commits behind upstream (as of 2026-07-10)
 #### 6.1.2 Package structure: @copilotkit/react-core for hooks, @copilotkit/runtime for backend, @copilotkit/voice for audio
 #### 6.1.3 SuperInstanceAgent: custom AbstractAgent subclass connecting to DeepSeek V4 Flash, Nebula, VoxelWorks
 #### 6.1.4 Extension requirements: MQTT transport, Redis-backed runner, dynamic device registration, distributed agent support
