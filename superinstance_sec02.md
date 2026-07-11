@@ -20,7 +20,7 @@ The ecosystem's quantitative footprint is summarized in Table 1. At 373,639+ lin
 | crates.io packages | 24+ | Published Rust crates [^4^] |
 | PyPI packages | 35+ | Published Python packages [^5^] |
 | npm packages | 18+ | Published TypeScript/JavaScript packages [^6^] |
-| Primary license | MIT | All repositories [^1^] |
+| Primary license | Apache-2.0 | All repositories [^1^] |
 
 The quantitative scale reveals a pattern common to research-intensive ecosystems: deep investment in foundational mathematics and cross-language portability at the expense of integration polish. The 24 crates.io, 35 PyPI, and 18 npm packages show that the project prioritizes language accessibility — core algorithms reach users through idiomatic bindings rather than foreign function interface (FFI) documentation. However, the absence of stable GitHub releases (most repos show 0 releases despite published packages) indicates a continuous-deployment culture where `main` branch HEAD is the only supported version.
 
