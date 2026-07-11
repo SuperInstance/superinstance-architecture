@@ -3,7 +3,7 @@
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![SuperInstance](https://img.shields.io/badge/part%20of-SuperInstance-9cf.svg)](https://github.com/SuperInstance)
 
-Complete architecture specification for SuperInstance — a voice-controlled, self-assembling distributed system for heterogeneous edge hardware aboard commercial fishing vessels.
+Architecture specification for SuperInstance — a voice-controlled, self-assembling distributed system for heterogeneous edge hardware aboard commercial fishing vessels.
 
 ## What This Repo Contains
 
@@ -26,7 +26,7 @@ SuperInstance decomposes every application into **rooms** — simultaneously phy
 
 | Principle | Implementation |
 |-----------|---------------|
-| Rooms as universal context | MQTT `/vessel/{room}/{device}/{metric}` + DDS domains + PLATO portals |
+| Rooms as shared context | MQTT `/vessel/{room}/{device}/{metric}` + DDS domains + PLATO portals |
 | Vessels as self-sovereign identities | `did:key` DIDs, W3C Verifiable Credentials |
 | Reflex precedes deliberation | `pincher` engine <1 ms, ESP32 wake word never leaves MCU |
 | Self-assembly as default | mDNS → SWIM gossip → Kademlia DHT → K3s auto-registration |
@@ -60,7 +60,7 @@ SuperInstance decomposes every application into **rooms** — simultaneously phy
 | Forgemaster ⚒️ | ProArt Ryzen + RTX4050 | Ternary crate generation, GPU compute |
 | Claude Code 🅰️ | Sub-agent | Deep repo reasoning, code generation |
 | Kimi Code 📐 | Sub-agent | Wide-context cross-crate stitching |
-| Nebula 🌐 | Cloudflare Worker | Edge reflex engine, fast-path orchestration |
+| Nebula 🌐 | Cloudflare Worker | Edge reflex engine; routes safety-critical commands around the deliberative pipeline |
 
 ## Repository Structure
 
@@ -69,9 +69,10 @@ superinstance-architecture/
 ├── I2I-CHARTER.md                        # Communication protocol between vessels
 ├── plan.md                               # Multi-stage execution plan
 ├── SuperInstance-Architecture.docx        # Final formatted deliverable
-├── superinstance.agent.final.converted.md # Architecture doc in Markdown (~1,000 lines)
+├── superinstance.agent.final.converted.md # Architecture doc in Markdown (~1,600 lines)
 ├── fig_*.png                              # Architecture diagrams (7 figures)
 ├── room_taxonomy_diagram.png             # Room classification
+├── superinstance_sec01_diagram.png       # Section 1 component overview
 ├── bottles/                              # I2I messages between agents
 │   ├── FORGEMASTER-TO-ORACLE2-2026-06-06.md
 │   └── ORACLE2-TO-FORGEMASTER-2026-06-06.md
@@ -112,6 +113,7 @@ Each bottle uses the three-shard format: **Artifacts**, **Reasoning**, **Blocker
 | `fig_power_budget_tiers.png` | Power consumption by tier |
 | `fig_sec06_latency_budget.png` | Section 6 latency detail |
 | `room_taxonomy_diagram.png` | Room classification hierarchy |
+| `superinstance_sec01_diagram.png` | Section 1 component overview |
 
 ## Architecture Document
 
@@ -141,15 +143,19 @@ The `research/` directory contains outputs from the multi-agent research swarm:
 
 ## Related Repos
 
-| Repo | Role |
-|------|------|
-| `negative-space-core` | Ternary action tracking |
-| `conservation-verify` | Multi-scale γ + η = C verification |
-| `pincher` | <1ms reflex engine |
-| `flux-core` | FLUX bytecode VM |
-| `open-parallel` | Ternary {-1,0,+1} logic layer |
-| `cuda-oxide` | Rust CUDA bindings |
-| `cudaclaw` | CUDA kernel launch |
+| Repo | Connection |
+|------|------------|
+| `negative-space-core` | Tracks ternary {-1,0,+1} action assignments used in room transitions and consensus |
+| `conservation-verify` | Verifies the γ + η = C conservation invariant across crate layers |
+| `pincher` | Provides the <1 ms reflex engine for safety-critical voice commands |
+| `flux-core` | Executes FLUX bytecode compiled from ternary logic and natural-language intent |
+| `open-parallel` | Implements the ternary {-1,0,+1} logic layer at the base of the stack |
+| `cuda-oxide` | Generates Rust CUDA bindings and PTX for Jetson/NVIDIA GPUs |
+| `cudaclaw` | Launches persistent CUDA kernels produced by the FLUX→GPU pipeline |
+| `plato-edge` | Edge inference package for PLATO rooms (referenced in Section 5) |
+| `flux-cross-assembler` | Dual-target FLUX assembler that compiles edge and cloud bytecode |
+| `vessel-room-navigator` | Web-based room navigation interface for the vessel MUD model |
+| `openconstruct-esp32` | ESP32 sensor firmware for Tier 0 edge nodes |
 
 ## Building the Document
 
@@ -160,4 +166,4 @@ The architecture was produced in three stages:
 
 ---
 
-*Designed by Casey Digennaro in Sitka, Alaska. One fisherman commanding a 20+ node distributed cluster using only spoken words.*
+*Designed by Casey Digennaro in Sitka, Alaska. The target deployment is a 20+ node heterogeneous cluster aboard a commercial fishing vessel, controlled through spoken commands.*
