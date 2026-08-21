@@ -1,6 +1,6 @@
 # superinstance-architecture
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 [![SuperInstance](https://img.shields.io/badge/part%20of-SuperInstance-9cf.svg)](https://github.com/SuperInstance)
 
 Architecture specification for SuperInstance — a voice-controlled, self-assembling distributed system for heterogeneous edge hardware aboard commercial fishing vessels.
