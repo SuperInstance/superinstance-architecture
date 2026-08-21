@@ -192,7 +192,7 @@
 
 | Constraint | Impact |
 |-----------|--------|
-| **3,200+ existing repos** | CopilotKit integration must map across existing ecosystem, not replace it. |
+| **4,095+ existing repos (as of 2026-07-10)** | CopilotKit integration must map across existing ecosystem, not replace it. |
 | **5-layer stack is fixed** | Architecture must respect L1-L5 separation. |
 | **Open source first** | All components must be open-source licensed (MIT/Apache-2.0). |
 | **Multi-language** | Rust, Python, TypeScript, C, CUDA - no single language mandate. |

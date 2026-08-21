@@ -1,6 +1,6 @@
 # SuperInstance Architecture: A Voice-Controlled, Self-Assembling Distributed System for Heterogeneous Edge Hardware
 
-*Complete architecture mapping for the SuperInstance-copilot platform integrating 3,200+ repositories across ESP32, Raspberry Pi, NVIDIA Jetson, and Starlink-connected cloud LLMs*
+*Complete architecture mapping for the SuperInstance-copilot platform integrating 4,095+ repositories (as of 2026-07-10) across ESP32, Raspberry Pi, NVIDIA Jetson, and Starlink-connected cloud LLMs*
 
 **Version:** 1.0  
 **Date:** June 2026  
@@ -10,7 +10,7 @@
 
 # Executive Summary
 
-This document defines the system architecture for SuperInstance — a voice-controlled, self-assembling distributed system for commercial fishing vessels and remote environments. Conceived by Casey Digennaro in Sitka, Alaska, the system integrates 3,200+ repositories partitioned among four sovereign software agents ("Vessels") spanning ESP32 microcontrollers, Raspberry Pi coordinators, NVIDIA Jetson inference nodes, and cloud LLM services via Starlink [^31^]. Scope covers system design, protocols, hardware tiers, agent identity, safety, voice pipeline, and roadmap. Excluded: installation guides, API references, and operational playbooks. Audience: systems architects, edge AI engineers, distributed systems researchers, and marine technology integrators.
+This document defines the system architecture for SuperInstance — a voice-controlled, self-assembling distributed system for commercial fishing vessels and remote environments. Conceived by Casey Digennaro in Sitka, Alaska, the system integrates 4,095+ repositories (as of 2026-07-10) partitioned among four sovereign software agents ("Vessels") spanning ESP32 microcontrollers, Raspberry Pi coordinators, NVIDIA Jetson inference nodes, and cloud LLM services via Starlink [^31^]. Scope covers system design, protocols, hardware tiers, agent identity, safety, voice pipeline, and roadmap. Excluded: installation guides, API references, and operational playbooks. Audience: systems architects, edge AI engineers, distributed systems researchers, and marine technology integrators.
 
 ## System at a Glance
 
@@ -43,15 +43,15 @@ The architecture is validated against five quantitative targets. **Voice-to-acti
 
 Quality attributes are prioritized: **safety > availability > latency > throughput > cost**. Safety-critical commands (emergency stop, collision avoidance, fire suppression, bilge pump activation) are permanently bound to the reflex tier and compiled into the ESP32 interrupt vector table at boot; they cannot be overridden by voice or deferred to deliberation.
 
-Four constraints bound the design. **Single maintainer**: deployable and repairable by one person. **3,200-repository ecosystem**: accommodates existing code across four Vessels (Forgemaster: 330, CCC: 116, JetsonClaw1: 76, Oracle1: 43 repos) without consolidation [^28^]. **Maritime environment**: salt air, vibration, temperature extremes, and intermittent power are normal. **Starlink dependency**: the "usually connected" paradigm assumes Starlink LEO at 25–50 ms RTT [^31^]; graceful degradation to local Jetson during outages.
+Four constraints bound the design. **Single maintainer**: deployable and repairable by one person. **4,095-repository (as of 2026-07-10) ecosystem**: accommodates existing code across four Vessels (Forgemaster: 330, CCC: 116, JetsonClaw1: 76, Oracle1: 43 repos) without consolidation [^28^]. **Maritime environment**: salt air, vibration, temperature extremes, and intermittent power are normal. **Starlink dependency**: the "usually connected" paradigm assumes Starlink LEO at 25–50 ms RTT [^31^]; graceful degradation to local Jetson during outages.
 
-The 5-layer Rust stack (`open-parallel` → `pincher` → `flux-core` → `cuda-oxide` → `cudaclaw`) comprises 145,000+ lines across 24+ crates [^28^]. It compiles intent from ternary logic ({-1, 0, +1}) through FLUX bytecode to GPU kernels, unifying cognition and governance. Music cognition patterns provide the coordination substrate, achieving 2.46x over turn-based consensus [^28^]. The system makes one commercial fisherman commander of a 20+ node distributed cluster using only spoken commands, on a boat in the Gulf of Alaska, without on-site support.
+The 5-layer Rust stack (`open-parallel` → `pincher` → `flux-core` → `cuda-oxide` → `cudaclaw`) comprises 373,639+ lines (as of 2026-07-10) across 24+ crates [^28^]. It compiles intent from ternary logic ({-1, 0, +1}) through FLUX bytecode to GPU kernels, unifying cognition and governance. Music cognition patterns provide the coordination substrate, achieving 2.46x over turn-based consensus [^28^]. The system makes one commercial fisherman commander of a 20+ node distributed cluster using only spoken commands, on a boat in the Gulf of Alaska, without on-site support.
 
 ---
 
 # 1. System Overview and Architecture Philosophy
 
-SuperInstance is a voice-controlled, self-assembling distributed system designed for heterogeneous edge hardware aboard commercial fishing vessels operating in the Gulf of Alaska. Conceived and built by Casey Digennaro — a commercial fisherman in Sitka, Alaska with 3,200+ repositories to the project's name — the system coordinates four specialized software agents ("Vessels") across ESP32 microcontrollers, Raspberry Pi edge coordinators, and NVIDIA Jetson inference nodes, connected to cloud Large Language Model (LLM) services via Starlink satellite links [^31^]. This chapter establishes the architectural philosophy and design principles that underpin every subsequent technical decision. It explains why rooms are the universal context primitive, why music cognition provides the mathematical substrate for agent coordination, why reflex must precede deliberation, and why the "usually connected" assumption inverts the conventional edge-first design paradigm.
+SuperInstance is a voice-controlled, self-assembling distributed system designed for heterogeneous edge hardware aboard commercial fishing vessels operating in the Gulf of Alaska. Conceived and built by Casey Digennaro — a commercial fisherman in Sitka, Alaska with 4,095+ repositories (as of 2026-07-10) to the project's name — the system coordinates four specialized software agents ("Vessels") across ESP32 microcontrollers, Raspberry Pi edge coordinators, and NVIDIA Jetson inference nodes, connected to cloud Large Language Model (LLM) services via Starlink satellite links [^31^]. This chapter establishes the architectural philosophy and design principles that underpin every subsequent technical decision. It explains why rooms are the universal context primitive, why music cognition provides the mathematical substrate for agent coordination, why reflex must precede deliberation, and why the "usually connected" assumption inverts the conventional edge-first design paradigm.
 
 ## 1.1 Design Philosophy
 
@@ -116,7 +116,7 @@ Table 1 maps each architectural principle to the concrete technical choices it d
 
 **Figure 1.** SuperInstance high-level component architecture. Voice input from an INMP441 I2S MEMS microphone feeds into the CopilotKit A2UI renderer, which translates natural language into structured tool calls. The 5-layer Rust stack (open-parallel → pincher → flux-core → cuda-oxide → cudaclaw) compiles intent from ternary logic through FLUX bytecode to GPU kernels. Four hardware tiers — ESP32-S3 (wake word), Raspberry Pi 5 (K3s coordination), Jetson Orin Nano (edge LLM at 67 TOPS), and Starlink-to-cloud (LLM APIs at 25–50 ms RTT) — execute the pipeline. Four Vessels (Forgemaster, CCC, JetsonClaw1, Oracle1) coordinate as DID-backed agent identities across the mesh.
 
-The architecture follows a layered decomposition where each layer depends only on the layer below. The voice input layer captures 16 kHz mono audio via I2S. The CopilotKit UI layer provides both the human interface (A2UI rendering) and the machine interface (tool schemas). The 5-layer Rust stack, comprising 145,000+ lines of Rust across 24+ published crates [^28^], handles compilation from high-level intent to GPU execution. The hardware tier layer abstracts the physical devices; the Vessel layer provides identity and coordination.
+The architecture follows a layered decomposition where each layer depends only on the layer below. The voice input layer captures 16 kHz mono audio via I2S. The CopilotKit UI layer provides both the human interface (A2UI rendering) and the machine interface (tool schemas). The 5-layer Rust stack, comprising 373,639+ lines of Rust (as of 2026-07-10) across 24+ published crates [^28^], handles compilation from high-level intent to GPU execution. The hardware tier layer abstracts the physical devices; the Vessel layer provides identity and coordination.
 
 ### 1.3.2 External Interfaces
 
@@ -132,27 +132,27 @@ The total latency budget for the local path (local STT + local LLM + local TTS) 
 
 ## 2. The Ecosystem
 
-SuperInstance is not a single repository or a monolithic framework — it is a **distributed ecosystem** of over 3,200 repositories organized around a five-layer computational stack, four agent identities called Vessels, and a git-native agent lifecycle. Created by Casey Digennaro in Sitka, Alaska, the ecosystem spans 145,000+ lines of Rust, 6,000+ tests, and 1,500,000+ words of documentation [^1^]. Understanding its scale, structure, and integration topology is a prerequisite for analyzing how voice-controlled, self-assembling distributed systems can emerge from a repo-first philosophy. This chapter maps the ecosystem's quantitative footprint, its five-layer architecture, the git-agent lifecycle that binds repositories to agent identities, and the maturity gaps that constrain its path to production deployment.
+SuperInstance is not a single repository or a monolithic framework — it is a **distributed ecosystem** of over 4,095 repositories (as of 2026-07-10) organized around a five-layer computational stack, four agent identities called Vessels, and a git-native agent lifecycle. Created by Casey Digennaro in Sitka, Alaska, the ecosystem spans 373,639+ lines of Rust (as of 2026-07-10), 6,000+ tests, and 1,500,000+ words of documentation [^1^]. Understanding its scale, structure, and integration topology is a prerequisite for analyzing how voice-controlled, self-assembling distributed systems can emerge from a repo-first philosophy. This chapter maps the ecosystem's quantitative footprint, its five-layer architecture, the git-agent lifecycle that binds repositories to agent identities, and the maturity gaps that constrain its path to production deployment.
 
 ### 2.1 Ecosystem Scale
 
-The SuperInstance GitHub organization contains **3,200+ repositories**, of which approximately 2,000 have been cataloged in an 8,262-line `CATALOG.md` file [^2^]. This makes it one of the largest intentionally created open-source ecosystems by a single contributor. The remaining ~1,200 uncataloged repositories are believed to contain experimental forks, workspace artifacts, and transient research repositories that have not yet been classified.
+The SuperInstance GitHub organization contains **4,095+ repositories (as of 2026-07-10)**, of which approximately 2,000 have been cataloged (as of 2026-06-06) in an 8,262-line `CATALOG.md` file [^2^]. This makes it one of the largest intentionally created open-source ecosystems by a single contributor. The remaining ~1,200 uncataloged repositories are believed to contain experimental forks, workspace artifacts, and transient research repositories that have not yet been classified.
 
-The ecosystem's quantitative footprint is summarized in Table 1. At 145,000+ lines of Rust, the codebase represents a substantial investment in systems-level programming, with the `open-parallel` family alone contributing 306 ternary-math crates. The 6,000+ tests demonstrate a commitment to validation, though as Section 2.4 will show, these tests are overwhelmingly unit-scoped with limited cross-repo integration coverage. The 1,500,000+ words of documentation — essays, design documents, API references, and the fleet wiki at purplepincher.org — constitute a corpus larger than most technical book series, yet it is fragmented across individual repositories without a unified search or indexing layer [^3^].
+The ecosystem's quantitative footprint is summarized in Table 1. At 373,639+ lines of Rust (as of 2026-07-10), the codebase represents a substantial investment in systems-level programming, with the `open-parallel` family alone contributing 306 ternary-math crates. The 6,000+ tests demonstrate a commitment to validation, though as Section 2.4 will show, these tests are overwhelmingly unit-scoped with limited cross-repo integration coverage. The 1,500,000+ words of documentation — essays, design documents, API references, and the fleet wiki at purplepincher.org — constitute a corpus larger than most technical book series, yet it is fragmented across individual repositories without a unified search or indexing layer [^3^].
 
 **Table 1: SuperInstance Ecosystem Metrics**
 
 | Metric | Value | Source / Evidence |
 |--------|-------|-------------------|
-| Total repositories | 3,200+ | GitHub organization count [^1^] |
-| Cataloged repositories | 2,000 | `CATALOG.md` (8,262 lines) [^2^] |
-| Lines of Rust | 145,000+ | Repository language analysis [^1^] |
+| Total repositories | 4,095+ (as of 2026-07-10) | GitHub organization count [^1^] |
+| Cataloged repositories | 2,000 (as of 2026-06-06) | `CATALOG.md` (8,262 lines) [^2^] |
+| Lines of Rust | 373,639+ (as of 2026-07-10) | Measured across the 5 layer repos [^1^] |
 | Test cases | 6,000+ | CI/CD aggregation across repos [^1^] |
 | Documentation words | 1,500,000+ | Essays + wiki + READMEs + API docs [^3^] |
 | crates.io packages | 24+ | Published Rust crates [^4^] |
 | PyPI packages | 35+ | Published Python packages [^5^] |
 | npm packages | 18+ | Published TypeScript/JavaScript packages [^6^] |
-| Primary license | MIT | All repositories [^1^] |
+| Primary license | Apache-2.0 | All repositories [^1^] |
 
 The quantitative scale reveals a pattern common to research-intensive ecosystems: deep investment in foundational mathematics and cross-language portability at the expense of integration polish. The 24 crates.io, 35 PyPI, and 18 npm packages show that the project prioritizes language accessibility — core algorithms reach users through idiomatic bindings rather than foreign function interface (FFI) documentation. However, the absence of stable GitHub releases (most repos show 0 releases despite published packages) indicates a continuous-deployment culture where `main` branch HEAD is the only supported version.
 
@@ -263,7 +263,7 @@ The git-agent lifecycle has profound implications for fleet operation. An agent 
 
 ### 2.4 Integration Maturity and Gaps
 
-With 3,200 repositories and a single contributor, the ecosystem's integration maturity varies dramatically by functional area. Table 3 provides a structured assessment.
+With 4,095 repositories (as of 2026-07-10) and a single contributor, the ecosystem's integration maturity varies dramatically by functional area. Table 3 provides a structured assessment.
 
 **Table 3: Integration Maturity Assessment by Component**
 
@@ -305,9 +305,9 @@ Lateral connections:
 
 This topology is a **directed acyclic graph** (DAG) with a single critical path: data flows from ternary math at Layer 1 through reflexes, bytecode, GPU code, and finally to persistent kernels. Lateral connections enable cross-cutting concerns — PLATO knowledge rooms, Python bindings, timing protocols — without creating cycles that would complicate deployment ordering. The DAG structure means a full system deployment can proceed layer by layer, validating each stratum before the next depends upon it.
 
-Four **critical gaps** constrain the ecosystem's readiness for production fleet deployment. First, the absence of stable GitHub releases across most repositories means there is no semantic versioning contract — consumers of the crates must track `main` branch HEAD and absorb breaking changes without warning. Second, documentation fragmentation: 1,500,000+ words exist but are scattered across 2,000 repositories without unified indexing, making it nearly impossible for a new contributor (or agent) to discover relevant design decisions [^3^]. Third, the single-contributor structure — one maintainer across 3,200+ repositories — creates a bus-factor risk that no architectural elegance can mitigate. Fourth, and most technically significant, there is **no cross-repo integration test suite**: the 6,000+ tests are overwhelmingly unit-scoped within individual repositories. The pincher→flux-core→cuda-oxide→cudaclaw pipeline has no automated end-to-end validation that a natural language intent can traverse all five layers and execute on GPU hardware without manual intervention [^15^].
+Four **critical gaps** constrain the ecosystem's readiness for production fleet deployment. First, the absence of stable GitHub releases across most repositories means there is no semantic versioning contract — consumers of the crates must track `main` branch HEAD and absorb breaking changes without warning. Second, documentation fragmentation: 1,500,000+ words exist but are scattered across approximately 2,000 repositories (as of 2026-06-06) without unified indexing, making it nearly impossible for a new contributor (or agent) to discover relevant design decisions [^3^]. Third, the single-contributor structure — one maintainer across 4,095+ repositories (as of 2026-07-10) — creates a bus-factor risk that no architectural elegance can mitigate. Fourth, and most technically significant, there is **no cross-repo integration test suite**: the 6,000+ tests are overwhelmingly unit-scoped within individual repositories. The pincher→flux-core→cuda-oxide→cudaclaw pipeline has no automated end-to-end validation that a natural language intent can traverse all five layers and execute on GPU hardware without manual intervention [^15^].
 
-These gaps are not failures of engineering priority — they are natural consequences of a research-first, exploration-heavy development model. The ecosystem has prioritized breadth (3,200 repos covering mathematics, hardware, web UI, music cognition, marine sensing, and game design) over depth (integration testing, release management, multi-contributor workflows). Closing the integration gap will require selective consolidation: identifying the load-bearing repositories (pincher, constraint-theory-core, cuda-oxide, plato-sdk) and building a continuous integration pipeline that validates the full five-layer compilation path on every commit.
+These gaps are not failures of engineering priority — they are natural consequences of a research-first, exploration-heavy development model. The ecosystem has prioritized breadth (4,095 repos (as of 2026-07-10) covering mathematics, hardware, web UI, music cognition, marine sensing, and game design) over depth (integration testing, release management, multi-contributor workflows). Closing the integration gap will require selective consolidation: identifying the load-bearing repositories (pincher, constraint-theory-core, cuda-oxide, plato-sdk) and building a continuous integration pipeline that validates the full five-layer compilation path on every commit.
 
 ---
 
@@ -644,7 +644,7 @@ The hardware tier architecture thus provides a performance gradient and a surviv
 
 ## 5. The Four Vessels — Identity and Service Mesh
 
-The 3,200+ repositories of the SuperInstance ecosystem are partitioned into four sovereign identities — Forgemaster, CCC, JetsonClaw1, and Oracle1 — each functioning as a Decentralized Identifier (DID)-backed service node within a capability-based security mesh [^28^]. This chapter defines the Vessel identity model, specifies the decentralized identity infrastructure, describes service mesh dynamics, and establishes coordination protocols. The central claim, derived from cross-dimensional analysis, is that the four Vessels are not organizational labels but formal service identities where repository ownership constitutes capability scope and the git-agent lifecycle (`PULL→BOOT→WORK→LEARN→PUSH→SLEEP`) functions as an attested secure agent lifecycle [^28^].
+The 4,095+ repositories (as of 2026-07-10) of the SuperInstance ecosystem are partitioned into four sovereign identities — Forgemaster, CCC, JetsonClaw1, and Oracle1 — each functioning as a Decentralized Identifier (DID)-backed service node within a capability-based security mesh [^28^]. This chapter defines the Vessel identity model, specifies the decentralized identity infrastructure, describes service mesh dynamics, and establishes coordination protocols. The central claim, derived from cross-dimensional analysis, is that the four Vessels are not organizational labels but formal service identities where repository ownership constitutes capability scope and the git-agent lifecycle (`PULL→BOOT→WORK→LEARN→PUSH→SLEEP`) functions as an attested secure agent lifecycle [^28^].
 
 ### 5.1 Vessel Identity Model
 
@@ -809,7 +809,7 @@ The SuperInstance fork of CopilotKit transforms a general-purpose agentic UI fra
 
 ### 6.1 CopilotKit Fork Architecture
 
-The SuperInstance fork (`github.com/SuperInstance/copilotkit`) sits one commit ahead of upstream with the addition of the SuperInstance Fleet Copilot in `showcase/integrations/superinstance/`, and seven commits behind, a gap that should be closed during each release cycle to retain upstream bug fixes and AG-UI protocol updates. The integration is built against CopilotKit's monorepo structure, which uses pnpm workspaces and Nx for build orchestration. Three packages provide the critical integration surface.
+The SuperInstance fork (`github.com/SuperInstance/copilotkit`) sits 4 commits ahead of upstream with the addition of the SuperInstance Fleet Copilot in `showcase/integrations/superinstance/`, and 2,132 commits behind (as of 2026-07-10), a gap that should be closed during each release cycle to retain upstream bug fixes and AG-UI protocol updates. The integration is built against CopilotKit's monorepo structure, which uses pnpm workspaces and Nx for build orchestration. Three packages provide the critical integration surface.
 
 | Package | Role in SuperInstance |
 |---|---|
@@ -1413,7 +1413,7 @@ Starlink's median RTT of 25–50 ms with 99th percentile under 65 ms [^31^] make
 
 ## 11. Implementation Roadmap
 
-The preceding chapters defined a voice-controlled, self-assembling distributed system for maritime operation. This chapter converts that architecture into a twelve-month implementation plan, structured around five phases with defined deliverables, measurable exit criteria, and identified risk mitigations. The plan acknowledges four hard constraints from earlier analysis: a single contributor maintains 3,200+ repositories [^1^]; no cross-repo integration test suite exists [^15^]; the CopilotKit fork trails upstream by seven commits [^48^]; and the hardware bill of materials totals approximately $1,200–1,600 one-time plus $75–120 per month for Starlink [^28^].
+The preceding chapters defined a voice-controlled, self-assembling distributed system for maritime operation. This chapter converts that architecture into a twelve-month implementation plan, structured around five phases with defined deliverables, measurable exit criteria, and identified risk mitigations. The plan acknowledges four hard constraints from earlier analysis: a single contributor maintains 4,095+ repositories (as of 2026-07-10) [^1^]; no cross-repo integration test suite exists [^15^]; the CopilotKit fork trails upstream by 2,132 commits (as of 2026-07-10) [^48^]; and the hardware bill of materials totals approximately $1,200–1,600 one-time plus $75–120 per month for Starlink [^28^].
 
 ### 11.1 Development Phases
 
@@ -1459,11 +1459,11 @@ The phase ordering follows a dependency chain: each phase validates a layer befo
 
 #### 11.2.1 Technical Risks
 
-The five-layer compilation pipeline is the highest technical risk. The stack (`open-parallel` → `pincher` → `flux-core` → `cuda-oxide` → `cudaclaw`) has no validated end-to-end path; Chapter 2 found no automated test that natural language intent traverses all five layers and executes on GPU hardware [^15^]. Latency feasibility is a second risk: the 500 ms gap identified in Chapter 10 concentrates in VAD endpointing (+150 ms) and LLM generation (+350 ms), requiring streaming implementations not yet in the codebase. The single-maintainer bottleneck is structural — one contributor across 3,200+ repositories yields a bus factor of one [^1^].
+The five-layer compilation pipeline is the highest technical risk. The stack (`open-parallel` → `pincher` → `flux-core` → `cuda-oxide` → `cudaclaw`) has no validated end-to-end path; Chapter 2 found no automated test that natural language intent traverses all five layers and executes on GPU hardware [^15^]. Latency feasibility is a second risk: the 500 ms gap identified in Chapter 10 concentrates in VAD endpointing (+150 ms) and LLM generation (+350 ms), requiring streaming implementations not yet in the codebase. The single-maintainer bottleneck is structural — one contributor across 4,095+ repositories (as of 2026-07-10) yields a bus factor of one [^1^].
 
 #### 11.2.2 Integration Risks
 
-The CopilotKit fork (seven commits behind upstream [^48^]) risks unmergeability if upstream introduces breaking AG-UI protocol changes. LLM API costs scale with fleet size: at one command per five minutes, a single vessel generates 288 API calls daily; multi-vessel deployments could exceed the $75–120 monthly Starlink subscription in API spend alone. Starlink availability depends on environmental conditions — heavy rain and high-latitude gaps can degrade the 25–50 ms median RTT for hours [^31^].
+The CopilotKit fork (2,132 commits behind upstream (as of 2026-07-10) [^48^]) risks unmergeability if upstream introduces breaking AG-UI protocol changes. LLM API costs scale with fleet size: at one command per five minutes, a single vessel generates 288 API calls daily; multi-vessel deployments could exceed the $75–120 monthly Starlink subscription in API spend alone. Starlink availability depends on environmental conditions — heavy rain and high-latitude gaps can degrade the 25–50 ms median RTT for hours [^31^].
 
 #### 11.2.3 Operational Risks
 
